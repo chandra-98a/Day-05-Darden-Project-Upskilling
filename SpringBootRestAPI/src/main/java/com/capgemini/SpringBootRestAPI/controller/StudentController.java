@@ -25,7 +25,8 @@ public class StudentController {
 	 @GetMapping("/allstudents") 
 	 public ResponseEntity<Student> getStudent()
 	 { 
-		 int id; 
+		 @SuppressWarnings("unused")
+		int id; 
 		 Student student= new Student
 				 (
 						 1,
