@@ -3,6 +3,7 @@ package com.capgemini.SpringBootRestAPI.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +62,12 @@ return student;
     	System.out.println(student.getfName());
     	System.out.println(student.getlName());
     	return student;
+    }
+    
+  //@DeleteMapping
+    @DeleteMapping("/students/{id}/delete")
+    public String deleteStudent(@PathVariable("id") int studentId) {
+  
+    	return "Student deleted successfully";
     }
 }
