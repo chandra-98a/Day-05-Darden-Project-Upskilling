@@ -3,6 +3,8 @@ package com.capgemini.SpringBootRestAPI.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +19,20 @@ import com.capgemini.SpringBootRestAPI.bean.Student;
 @RestController
 public class StudentController {
 	
-	/*
-	 * @GetMapping("/allstudents") public Student getStudent(){ int id; Student
-	 * student= new Student(1, "chandra", "kala" ); return student; }
-	 */
-
+	
+	 @GetMapping("/allstudents") 
+	 public ResponseEntity<Student> getStudent()
+	 { 
+		 int id; 
+		 Student student= new Student
+				 (
+						 1,
+						 "chandra", 
+						 "kala"
+			 );
+	 return new ResponseEntity<>(student, HttpStatus.OK);
+	 }
+	 
 	// http://localhost:8080/students
     @GetMapping("/students")
     public List<Student> getStudents(){
